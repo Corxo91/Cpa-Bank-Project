@@ -21,17 +21,35 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Use Node
+      - name: Use Node 20 with npm cache
         uses: actions/setup-node@v4
         with:
           node-version: "20"
           cache: "npm"
 
+      - name: Ensure lockfile
+        run: |
+          if [ ! -f package-lock.json ]; then
+            echo "No package-lock.json found. Generating..."
+            npm i --package-lock-only
+          fi
+
       - name: Install deps
         run: npm ci
 
-      - name: Build (Next static export)
-        run: npm run build && npm run postbuild
+      - name: Build + Export static
+        run: |
+          npm run build
+          npx next export
+          touch out/.nojekyll
+        # Si export falla, muestra árbol para debug:
+      - name: Show build artifacts (debug)
+        if: ${{ failure() }}
+        run: |
+          echo "[DEBUG] Listing repo root:"
+          ls -la
+          echo "[DEBUG] Listing out/:"
+          ls -la out || true
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
