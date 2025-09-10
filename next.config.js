@@ -1,7 +1,8 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  output: 'export',          // genera /out estático (reemplaza "next export")
-  images: { unoptimized: true }, // desactiva optimizador de imágenes (no hay servidor)
+  output: 'export',
+  images: { unoptimized: true },
+  trailingSlash: true, // opcional, evita 404 al refrescar rutas
 }
 
 module.exports = nextConfig
