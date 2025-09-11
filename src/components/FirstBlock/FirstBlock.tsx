@@ -1,5 +1,5 @@
-import { prefix } from '../../lib/prefix';
 "use client"
+import { prefix } from '../../lib/prefix';
 import Link from "next/link"
 import { BackgroundRadialRight } from "../BackgroundRadialRight"
 import { MotionTransition } from "../MotionTransition"

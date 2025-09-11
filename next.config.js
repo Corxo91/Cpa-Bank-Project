@@ -1,10 +1,11 @@
 /** @type {import('next').NextConfig} */
+const isProd = process.env.NODE_ENV === "production";
 const nextConfig = {
- output: 'export',
-  images: { unoptimized: true }, // Usa el subpath REAL que muestra Pages (minúsculas):
-  basePath: '/cpa-bank-project',
-  assetPrefix: '/cpa-bank-project/',
-  trailingSlash: true,          // /ruta/ -> /ruta/index.html (evita 404)
-}
+  output: "export",
+  images: { unoptimized: true },
+  basePath: isProd ? "/cpa-bank-project" : "",
+  assetPrefix: isProd ? "/cpa-bank-project/" : "",
+  trailingSlash: true,
+};
 
-module.exports = nextConfig
+module.exports = nextConfig;

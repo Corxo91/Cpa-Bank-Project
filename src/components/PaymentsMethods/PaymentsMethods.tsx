@@ -4,6 +4,7 @@ import { BackgroundRadialRight } from '../BackgroundRadialRight'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import { dataPaymentMethods } from './PaymentMethods.data'
 import Image from 'next/image'
+import { prefix } from '../../lib/prefix';
 import { CtaDark } from '../CtaDark'
 
 export function PaymentsMethods() {
@@ -29,7 +30,7 @@ export function PaymentsMethods() {
                     <div className="absolute flex">
                         {dataPaymentMethods.map(({ id, image }) => (
                             <SwiperSlide key={id} className="flex items-center slider-horizontal">
-                                <Image src={`/assets/${image}`} alt="Payment" width="70" height="70" className="h-[60px] w-[120px] object-contain" />
+                                <Image src={`${prefix}/assets/${image}`} alt="Payment" width="70" height="70" className="h-[60px] w-[120px] object-contain" />
                             </SwiperSlide>
                         ))}
                     </div>

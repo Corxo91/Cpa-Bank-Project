@@ -35,7 +35,7 @@ export function Slide() {
                             {testimonial}
                         </div>
                         <div className="flex">
-                            <Image src={image} alt={name} width="50" height={50} className="mr-5" />
+                            <Image src={`${prefix}${image}`} alt={name} width="50" height={50} className="mr-5" />
                             <div>
                                 <h4 className="text-center">{name}</h4>
                                 <p className="text-primaryDark">{work}</p>

@@ -8,6 +8,7 @@ import { Reveal } from "../Reveal";
 import { EffectCards } from "swiper/modules";
 import { dataCards } from "./ChooseYourCards.data";
 import Image from "next/image";
+import { prefix } from '../../lib/prefix';
 
 export function ChooseYourCards() {
     return (
@@ -28,7 +29,7 @@ export function ChooseYourCards() {
                         >
                             {dataCards.map(({ image, id }) => (
                                 <SwiperSlide key={id}>
-                                    <Image src={image} alt="Credit Card" width="400" height="300" />
+                                    <Image src={`${prefix}${image}`} alt="Credit Card" width="400" height="300" />
                                 </SwiperSlide>
                             ))}
                         </Swiper>
