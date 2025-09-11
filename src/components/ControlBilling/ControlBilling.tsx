@@ -1,6 +1,7 @@
 "use client"
 
 import Image from "next/image"
+import { prefix } from '../../lib/prefix';
 import { MotionTransition } from "../MotionTransition"
 import { Reveal } from "../Reveal"
 
@@ -9,7 +10,7 @@ export function ControlBilling() {
         <div className="p-4 py-20 md:py-64">
             <div className="flex flex-col-reverse max-w-5xl mx-auto md:flex-row place-content-evenly">
                 <MotionTransition className="flex-1 p-6 md:p-8">
-                    <Image src="/assets/control-business.png" alt="Control Business" width="580" height={411} className="w-full h-auto" />
+                    <Image src={`${prefix}/assets/control-business.png`} alt="Control Business" width="580" height={411} className="w-full h-auto" />
                 </MotionTransition>
                 <div className="flex-1 p-6 md:p-8">
                     <Reveal>

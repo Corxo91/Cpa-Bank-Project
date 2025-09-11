@@ -1,3 +1,4 @@
+import { prefix } from '../../lib/prefix';
 "use client"
 import Link from "next/link"
 import { BackgroundRadialRight } from "../BackgroundRadialRight"
@@ -34,7 +35,7 @@ export function FirstBlock() {
                     </Reveal>
                 </div>
                 <MotionTransition className="flex items-center justify-center">
-                    <Image src="/assets/cards-block.png" alt="Card" width={450} height={450} className="h-auto w-72 md:w-full" />
+                    <Image src={`${prefix}/assets/cards-block.png`} alt="Card" width={450} height={450} className="h-auto w-72 md:w-full" />
                 </MotionTransition>
             </div>
         </div>

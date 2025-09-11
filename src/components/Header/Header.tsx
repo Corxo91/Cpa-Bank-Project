@@ -6,6 +6,7 @@ import { RiMenu3Line } from 'react-icons/ri'
 import { dataHeader } from "./Header.data"
 import { useState } from "react"
 import { MotionTransition } from "../MotionTransition/"
+import { prefix } from '../../lib/prefix';
 
 export function Header() {
     const [openMobileMenu, setOpenMobileMenu] = useState(false)
@@ -14,7 +15,7 @@ export function Header() {
         <MotionTransition>
             <nav className="flex flex-wrap items-center justify-between max-w-5xl p-4 mx-auto md:py-8">
                 <Link href="/" className="flex items-center">
-                    <Image src="/assets/logo.png" width="150" height="40" alt="Logo Bank" />
+                    <Image src={`${prefix}/assets/logo.png`} width="150" height="40" alt="Logo Bank" />
                 </Link>
                 <RiMenu3Line className="block text-3xl md:hidden cursor-pointer" onClick={() => setOpenMobileMenu(!openMobileMenu)} />
                 <div className={`${openMobileMenu ? 'block' : 'hidden'} w-full md:block md:w-auto`}>
